@@ -32,18 +32,18 @@ function makeBoard() {
 function makeHtmlBoard() {
   let htmlBoard = document.getElementById('board');
 
-  // TODO: add comment for this code
-  let top = document.createElement("tr");
-  top.setAttribute("id", "column-top");
-  top.addEventListener("click", handleClick);
+  // create columnTops to include click listener in order to place connect four pieces
+  let columnTops = document.createElement("tr");
+  columnTops.setAttribute("id", "column-top");
+  columnTops.addEventListener("click", handleClick);
 
-  // TODO: add comment for this code
-  for (let x = 0; x < WIDTH; x++) {
-    let headCell = document.createElement("td");
-    headCell.setAttribute("id", `top-${x}`);
-    top.append(headCell);
+  // iterate through each column and append columnTop to columnTops
+  for (let columnIndex = 0; columnIndex < WIDTH; columnIndex++) {
+    let columnTop = document.createElement("td");
+    columnTop.setAttribute("id", `top-${columnIndex}`);
+    columnTops.append(columnTop);
   }
-  htmlBoard.append(top);
+  htmlBoard.append(columnTops);
 
   // dynamically creates the main part of html board
   // uses HEIGHT to create table rows
