@@ -60,8 +60,7 @@ function makeHtmlBoard() {
 
 /** Given column x, return bottom empty y (null if filled) */
 function findSpotForCol(colNum) {
-  // TODO: write the real version of this, rather than always returning 5
-  for (let rowCount = HEIGHT-1; rowCount > 0; rowCount--) {
+  for (let rowCount = HEIGHT-1; rowCount >= 0; rowCount--) {
     if (BOARD[rowCount][colNum] === null) {
       return rowCount;
     }
@@ -109,7 +108,9 @@ function handleClick(evt) {
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
+  if (BOARD.every(row => !row.includes(null))) {
+    endGame(`It's a tie!`);
+  }
 
   // switch players
   currPlayer = (currPlayer + 1) % 2;
