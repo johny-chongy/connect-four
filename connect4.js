@@ -9,9 +9,8 @@
 
 const WIDTH = 7;
 const HEIGHT = 6;
-
-let currPlayer = 1; // active player: 1 or 2
 const BOARD = []; // array of rows, each row is array of cells  (board[y][x])
+let currPlayer = 1; // active player: 1 or 2
 
 /** Takes no input but generates an array of arrays of null values
  * Mutates BOARD such that:
@@ -49,12 +48,13 @@ function makeHtmlBoard() {
   htmlBoard.append(columnTops);
 
   // dynamically creates the main part of html board by iterating through HEIGHT & WIDTH
+  // by creating a row and appending cells to each row and then each row to htmlBoard
   for (let rowCounter = 0; rowCounter < HEIGHT; rowCounter++) {
     let row = document.createElement("tr");
     for (let columnCounter = 0; columnCounter < WIDTH; columnCounter++) {
-        let cell = document.createAttribute("td");
-        cell.setAttribute('id', `c-${rowCounter}-${columnCounter}`)
-        row.append(cell);
+      let cell = document.createElement("td");
+      cell.setAttribute('id', `c-${rowCounter}-${columnCounter}`)
+      row.append(cell);
     }
     htmlBoard.append(row);
   }
