@@ -14,11 +14,11 @@
 }
 
 .p1 {
-  color: navy;
+  background-color: navy;
 }
 
 .p2 {
-  color: maroon;
+  background-color: maroon;
 }
 
 /* column-top is table row of clickable areas for each column */
