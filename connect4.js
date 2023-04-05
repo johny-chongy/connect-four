@@ -67,10 +67,16 @@ function findSpotForCol(x) {
   return 5;
 }
 
-/** placeInTable: update DOM to place piece into HTML table of board */
+/** Updates DOM and places piece into HTML table of board */
+function placeInTable(row, column) {
+  // Create newPiece and add proper classes
+  let newPiece = document.createElement('div');
+  newPiece.classList.add('piece');
+  newPiece.classList.add(`p${currPlayer}`);
 
-function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  // Add newPiece to located coordinates
+  let selectCell = document.getElementById(`c-${row}-${column}`);
+  selectCell.append(newPiece);
 }
 
 /** endGame: announce game end */
